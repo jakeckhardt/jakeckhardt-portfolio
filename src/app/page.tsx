@@ -1,95 +1,81 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import { useState, useEffect } from "react";
+import MastheadTitles from "@/components/MastheadTitles";
+import Work from "@/components/Work";
+import Projects from "@/components/Projects";
+import Tools from "@/components/Tools";
+import Nav from "@/components/Nav";
 
 export default function Home() {
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="home">
+      <div className="masthead">
+        <div className="mastheadContainer">
+          <div className="mastheadTextContainer">
+            <h1>Jake</h1>
+            <h1>Eckhardt</h1>
+            <MastheadTitles />
+            <Nav />
+          </div>
+          <img src="/jake1.png" />
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="philosophy">
+        <h2>Things should look pretty and work good.</h2>
+        <p>- a thing I say a lot</p>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div id="work">
+        <div className="allWorkContainer">
+          <h2>Work</h2>
+          <Work />
+        </div>
       </div>
-    </main>
+      <div id="projects">
+        <div className="allProjectsContainer">
+          <h2>Projects</h2>
+          <Projects />
+        </div>
+      </div>
+      <div id="tools">
+        <div className="toolsContainer">
+          <h2>Tools</h2>
+          <Tools />
+        </div>
+      </div>
+      <div id="contact">
+        <div className="contactContainer">
+          <div className="contactInfoContainer">
+            <h2>Contact</h2>
+            <div className="contactInnerContainer">
+              <div className="contactText">
+                <p>Got a project in mind?</p>
+                <p>Let's chat.</p>
+              </div>
+              <div className="contactLinks">
+                <a href="https://www.linkedin.com/in/jake-eckhardt-62a7a882/" target="_blank">
+                  <p>
+                    LinkedIn
+                  </p>
+                </a>
+                <a href="mailto:jake.c.eckhardt@gmail.com">
+                  <p>Email</p>
+                </a>
+                <a href="/JakeEckhardtDeveloperResume.pdf" download="JakeEckhardtDeveloperResume">
+                  <p>Resume</p>
+                </a>
+                <a href="https://github.com/jakeckhardt" target="_blank">
+                  <p>Github</p>
+                </a>
+              </div>
+              {/* <div className="legalText">
+
+              </div> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
