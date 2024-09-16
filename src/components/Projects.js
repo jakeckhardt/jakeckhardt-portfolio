@@ -10,7 +10,7 @@ export default function Projects({}) {
         {
             image: "/dungeoneerDesigner.png",
             title: "Dungeoneer Designer",
-            link: "https://dnd-create-character-pbx6p9r6t-jake-eckhardts-projects.vercel.app/",
+            link: "https://dnd-create-character.vercel.app/",
             description: [
                 `See, in my head, this was supposed to be a weekend project. I like D&D.
                 I wanted to have a user-friendly, information-driven platform that my
@@ -40,7 +40,7 @@ export default function Projects({}) {
         {
             image: "/jakeeckhardtportfolio.png",
             title: "My Portfolio",
-            link: "https://dnd-create-character.vercel.app/",
+            link: "https://jakeckhardt-portfolio.vercel.app/",
             description: [
                 `Pretty meta, right? This one is pretty self-explanitory. I needed an updated portfolio
                 site - show off more modern knowledge and demonstrate my relevency.`,
