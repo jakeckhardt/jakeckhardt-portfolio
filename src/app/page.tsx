@@ -62,7 +62,7 @@ export default function Home() {
                 <a href="mailto:jake.c.eckhardt@gmail.com">
                   <p>Email</p>
                 </a>
-                <a href="/JakeEckhardtDeveloperResume.pdf" download="JakeEckhardtDeveloperResume">
+                <a href="/jakeeckhardtfrontenddevresume.pdf" download="JakeEckhardtDeveloperResume">
                   <p>Resume</p>
                 </a>
                 <a href="https://github.com/jakeckhardt" target="_blank">
