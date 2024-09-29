@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import Body from "@/components/Body";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Jake Eckhardt",
@@ -18,6 +19,7 @@ export default function RootLayout({
         <Body
           children={children}
         />
+        <Analytics />
       </body>
     </html>
   );
