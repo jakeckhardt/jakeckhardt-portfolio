@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function MastheadTitles({}) {
 
     const titles = [
-        "front-end dev",
+        "web developer",
         "dad",
         "d&d enthusiast",
         "coffee drinker",
@@ -16,7 +16,7 @@ export default function MastheadTitles({}) {
     const [titleList, setTitleList] = useState([
         {
             id: 0,
-            title: "front-end dev",
+            title: "web developer",
         },
         {
             id: 1,
@@ -49,7 +49,7 @@ export default function MastheadTitles({}) {
     return (
         <div className="mastheadTitles">
             <div className={moveup ? "titles up" : "titles"}>
-                {titleList.map((t, i) => (
+                {titleList.map((t) => (
                     <p>{t.title}</p>
                 ))}
             </div>

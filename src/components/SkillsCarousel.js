@@ -20,7 +20,7 @@ export default function SkillsCarousel({skills}) {
     useEffect(() => {
         adjustSize();  
         
-        window.addEventListener("resize", (e) => {
+        window.addEventListener("resize", () => {
             adjustSize();
         });
     }, []);
