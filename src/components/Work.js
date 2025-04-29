@@ -10,7 +10,7 @@ export default function Work({}) {
             company: "Anheuser-Busch",
             title: "Front-End Developer",
             location: "St. Louis, MO.",
-            time: "Jan. 2021 - present",
+            time: "Jan. 2021 - April 2025",
             description: [
                 `Ah, yes, Anheuser-Busch, the biggest beer company in the world - owning more than 500 brands. 
                 With a net that wide, they must have a lot of tech work, right? ...Yeah, you're absolutely 
@@ -18,7 +18,7 @@ export default function Work({}) {
                 `I was hired on as a contractor in 2021 and eventually hired on full-time in 2022. I was 
                 part of a small team expanding their web presence. We transitioned all of their top brand sites 
                 - like Budweiser, Michelob Ultra, and Busch - over from Adobe Experience Manager or Drupal to a 
-                Svelte/Builder.io environment.`,
+                Svelte/Builder.io environment then into React.`,
                 `During my time at the company, I've gotten the opportunity to take part in some pretty neat 
                 projects and campaigns. I've set up merch stores on the brand sites using Shopify's API; 
                 developed apps in collaboration with NFL, NHL, UFC, and other acronyms; and created brand 

@@ -88,7 +88,7 @@ export default function Tools({}) {
     useEffect(() => {
         adjustSize();  
         
-        window.addEventListener("resize", (e) => {
+        window.addEventListener("resize", () => {
             adjustSize();
         });
     }, []);

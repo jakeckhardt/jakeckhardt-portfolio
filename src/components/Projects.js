@@ -8,6 +8,37 @@ export default function Projects({}) {
 
     const projects = [
         {
+            image: "/betterlogs.png",
+            title: "BetterLogs",
+            link: "https://betterlogs.vercel.app/",
+            description: [
+                `This project was purely a response to my own frustrations with certain 
+                ticketing platforms. Everything seemed overly complex or unintuitive. This 
+                was a "Fine. I'll do it myself." vibe of a project. It's a simple, easily 
+                digestible ticketing platorm that allows users to create different boards, 
+                columns, and tickets.`,
+                `I wanted this to be a good feeling project. Tickets are draggable between
+                columns, tickets can hold data like links and a description, and you can 
+                add new and edit existing columns to drag your information-filled tickets.
+                I also wanted to include a demo mode, so anyone could test this out. However,
+                I didn't want to have all that demo data clogging up the database, so I 
+                created a purely frontend experience using cookies and local storage.`,
+                `This organizational tool was built with React, Next.js, PostgreSQL, and 
+                hosted on Vercel.`
+            ],
+            skillTags: [
+                "CSS3",
+                "RESTful API",
+                "Vercel",
+                "React.js",
+                "Next.js",
+                "SASS",
+                "NPM",
+                "Github",
+                "PostgreSQL"
+            ]
+        },
+        {
             image: "/dungeoneerDesigner.png",
             title: "Dungeoneer Designer",
             link: "https://dnd-create-character.vercel.app/",
@@ -85,7 +116,7 @@ export default function Projects({}) {
                     click={selectProject}
                 />
             ))}
-            {selectedWork ? (
+            {selectedWork && (
                 <div className="projectModalContainer">
                     <div className="projectModal">
                         <div className="mobileTitleContainer">
@@ -132,8 +163,6 @@ export default function Projects({}) {
                         </div>
                     </div>
                 </div>
-            ) : (
-                ""
             )}
         </div>
     );

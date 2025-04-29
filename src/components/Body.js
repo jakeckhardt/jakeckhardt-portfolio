@@ -31,7 +31,7 @@ export default function CookieContainer({children}) {
     return (
         <>
             <div className="backgroundPattern"></div>
-            {show ? (
+            {show && (
                 <div className={dark ? "container dark" : "container light"}>
                     {/* <button
                         onClick={(e) => toggleDark(e)}
@@ -40,8 +40,6 @@ export default function CookieContainer({children}) {
                     </button> */}
                     {children}
                 </div>
-            ) : (
-                ""
             )}
         </>
     );
