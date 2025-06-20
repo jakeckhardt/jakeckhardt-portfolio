@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from "react";
+import styles from "./styles.module.scss"
 
-export default function MastheadTitles({}) {
+export default function MastheadTitles() {
 
     const titles = [
         "web developer",
@@ -10,6 +11,8 @@ export default function MastheadTitles({}) {
         "d&d enthusiast",
         "coffee drinker",
         "nerd",
+        "fun guy",
+        "Dungeon Master",
     ];
 
     const [moveup, setMoveup] = useState(false);
@@ -47,10 +50,10 @@ export default function MastheadTitles({}) {
     }, [titleList]);
 
     return (
-        <div className="mastheadTitles">
-            <div className={moveup ? "titles up" : "titles"}>
+        <div className={styles.mastheadTitles}>
+            <div className={moveup ? [styles.titles, styles.up].join(" ") : styles.titles}>
                 {titleList.map((t) => (
-                    <p>{t.title}</p>
+                    <p className={styles.titleText}>{t.title}</p>
                 ))}
             </div>
         </div>

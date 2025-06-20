@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from "react";
+import styles from "./styles.module.scss";
 
-export default function SkillsCarousel({skills}) {
+export default function SkillsCarousel({skills, modal=false}: {skills: string[], modal?: boolean}) {
 
     const [skillSize, setSkillSize] = useState(150);
     const [width, setWidth] = useState(skills.length * 150);
@@ -26,9 +27,9 @@ export default function SkillsCarousel({skills}) {
     }, []);
 
     return (
-        <div className="skillsContainer">
+        <div className={!modal ? styles.skillsContainer : [styles.skillsContainer, styles.modalSkillsContainer].join(" ")}>
             <div 
-                className="skills"
+                className={styles.skills}
                 style={{width: width}}
             >
                 {skills.map((s) => (
@@ -40,7 +41,7 @@ export default function SkillsCarousel({skills}) {
                 ))}
             </div>
             <div 
-                className="skills"
+                className={styles.skills}
                 style={{
                     width: width,
                     left: width

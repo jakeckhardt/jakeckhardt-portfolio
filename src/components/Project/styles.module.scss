@@ -1,0 +1,23 @@
+@use '../../app/_colors' as colors;
+
+.project {
+    width: calc(100% / 3);
+    border: 2px solid colors.$green;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .project {
+        width: 100%;
+        max-width: 400px;
+    }
+}
