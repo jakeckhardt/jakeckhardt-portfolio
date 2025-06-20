@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import styles from "./styles.module.scss";
 
 export default function MobileNav({}) {
 
@@ -11,8 +12,8 @@ export default function MobileNav({}) {
     };
 
     return (
-        <div className="navContainer">
-            <div className="nav">
+        <div className={styles.navContainer}>
+            <div className={styles.nav}>
               <a href="#work">
                 work
               </a>
@@ -23,19 +24,19 @@ export default function MobileNav({}) {
                 contact
               </a>
             </div>
-            <div className="mobileNav">
+            <div className={styles.mobileNav}>
                 <div 
-                    className="burger"
+                    className={styles.burger}
                     onClick={openNav}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
                 </div>
-                <div className={open ? "navContainer open" : "navContainer"}>
-                    <div className="mobileHeader">
+                <div className={open ? [styles.navContainer, styles.open].join(" ") : styles.navContainer}>
+                    <div className={styles.mobileHeader}>
                         <h3>Jake Eckhardt</h3>
-                        <p>front-end dev</p>
+                        <p>web dev</p>
                     </div>
-                    <div className="links">
+                    <div className={styles.links}>
                         <a href="#work">
                             work
                         </a>

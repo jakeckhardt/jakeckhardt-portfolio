@@ -1,0 +1,396 @@
+@use '../app/_colors' as colors;
+
+.home {
+    overflow: hidden;
+    
+    .masthead {
+        padding: 40px;
+        background: white;
+        pointer-events: all;
+
+        .mastheadContainer {
+            position: relative;
+            height: calc(100vh - 80px);
+            background: url("/jake1bg.png");
+            background-size: cover;
+            border-radius: 10px;
+
+            .mastheadTextContainer {
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                h1 {
+                    font-size: 260px;
+                    color: colors.$white;
+                    margin: 0;
+                    height: 205px;
+                }
+            }
+
+            img {
+                position: absolute;
+                bottom: -40px;
+                max-width: 800px;
+                max-height: 92vh;
+                left: 50%;
+                transform: translateX(-50%);
+                pointer-events: none;
+            }
+        }
+    }
+
+    .philosophy {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        padding: 40px;
+        height: 500px;
+        background: white;
+
+        h2 {
+            color: colors.$green;
+            font-size: 75px;
+            max-width: 720px;
+            margin: 0;
+        }
+
+        p {
+            max-width: 720px;
+            width: 100%;
+            text-align: right;
+            font-size: 20px;
+            color: colors.$black;
+        }
+    }
+
+    .work {
+        background-color: #F7FFF7;
+        opacity: 1;
+        background-image:  radial-gradient(#698270 0.5px, transparent 0.5px), radial-gradient(#698270 0.5px, #F7FFF7 0.5px);
+        background-size: 20px 20px;
+        background-position: 0 0,10px 10px;
+        padding: 80px 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: all;
+
+        .allWorkContainer {
+            max-width: 1200px;
+            padding: 40px;
+            background: #fff;
+            border: 2px solid colors.$green;
+            border-radius: 10px;
+            box-sizing: border-box;
+
+            h2 {
+                color: colors.$green;
+                font-size: 80px;
+                margin: 0;
+            }
+
+            
+        }
+
+    }
+
+    .projects {
+        padding: 80px 40px;
+        display: flex;
+        justify-content: center;
+        background: white;
+        box-shadow: 0px 25px 20px -20px rgba(0,0,0,0.45);
+        pointer-events: all;
+
+        .allProjectsContainer {
+            max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box;
+
+            h2 {
+                font-size: 80px;
+                color: colors.$green;
+                padding: 0 40px;
+                margin: 0 0 20px 0;
+            }
+        }
+    }
+
+    .tools {
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+        background-color: #eef6ee;
+        background-image:  linear-gradient(135deg, #ffffff 25%, transparent 25%), linear-gradient(225deg, #ffffff 25%, transparent 25%), linear-gradient(45deg, #ffffff 25%, transparent 25%), linear-gradient(315deg, #ffffff 25%, #eef6ee 25%);
+        background-position:  40px 0, 40px 0, 0 0, 0 0;
+        background-size: 80px 80px;
+        background-repeat: repeat;
+        box-shadow: 0px 25px 20px -20px rgba(0,0,0,0.45);
+        pointer-events: all;
+
+        .toolsContainer {
+            width: 100%;
+        }
+    }
+
+    .contact {
+        height: 500px;
+        pointer-events: none;
+
+        .contactContainer {
+            height: 340px;
+            padding: 80px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, transparent 20%, #698270 20%, #698270 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #698270 20%, #698270 80%, transparent 80%, transparent) 27.5px 27.5px, linear-gradient(#4A7856 2.2px, transparent 2.2px) 0 -1.1px, linear-gradient(90deg, #4A7856 2.2px, #698270 2.2px) -1.1px 0;
+            background-size: 55px 55px, 55px 55px, 27.5px 27.5px, 27.5px 27.5px;
+            position: fixed;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: all;
+
+            .contactInfoContainer {
+                max-width: 1200px;
+                width: 100%;
+                margin: 0 40px;
+
+                h2 {
+                    color: white;
+                    font-size: 80px;
+                    padding: 0 40px;
+                    margin: 0 0 20px 0;
+                }
+
+                .contactInnerContainer {
+                    display: flex;
+                    gap: 40px;
+
+                    .contactText {
+                        width: 50%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        justify-content: space-between;
+
+                        p {
+                            color: white;
+                            font-size: 22px;
+                            max-width: 450px;
+
+                            span {
+                                font-weight: bold;
+                            }
+                        }
+                    }
+
+                    .contactLinks {
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px;
+                        width: 50%;
+
+                        a {
+                            text-decoration: none;
+                            height: fit-content;
+                            width: fit-content;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 10px 10px 10px 10px;
+                            border-radius: 10px;
+                            transition: all 0.2s;
+
+                            p {
+                                color: white;
+                                font-size: 22px;
+                                transition: all 0.2s;
+                            }
+
+                            &:hover {
+                                background: white;
+
+                                p {
+                                    color: colors.$green;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    
+    .home {
+        
+        .masthead {
+
+            .mastheadContainer {
+
+                .mastheadTextContainer {
+
+                    h1 {
+                        font-size: 140px;
+                        height: 110px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .home {
+                
+        .masthead {
+            height: calc(100vh - 40px);
+            padding: 20px;
+
+            .mastheadContainer {
+
+                .mastheadTextContainer {
+                    padding: 20px;
+                    gap: 5px;
+
+                    h1 {
+                        font-size: 60px;
+                        height: 50px;
+                    }
+                }
+                
+                img {
+                    max-width: 600px;
+                    bottom: -60px;
+                }
+            }
+        }
+
+        .work {
+            padding: 80px 20px;
+    
+            .allWorkContainer {
+                padding: 20px;
+    
+                h2 {
+                    font-size: 48px;
+                }
+            }
+        }
+
+        .philosophy {
+
+            h2 {
+                font-size: 48px;
+                line-height: 50px;
+                max-width: 460px;
+            }
+
+            p {
+                font-size: 18px;
+                max-width: 460px;
+            }
+        }
+
+        .projects {
+            padding: 80px 20px;
+
+            .allProjectsContainer {
+                padding: 0px;
+
+                h2 {
+                    font-size: 48px;
+                    padding: 0 20px;
+                }
+            }
+        }
+
+        #tools {
+            padding: 20px 0;
+
+            .toolsContainer {
+
+                .toolsInnerContainer {
+
+                    .tools {
+
+                        .tool {
+                            padding: 20px 4px;
+
+                            svg {
+                                height: 80px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .contact {
+            height: 590px;
+
+            .contactContainer {
+                height: 440px;
+
+                .contactInfoContainer {
+                    margin: 0;
+
+                    h2 {
+                        font-size: 48px;
+                        line-height: 50px;
+                    }
+
+                    .contactInnerContainer {
+                        padding: 0 20px;
+
+                        .contactText {
+                            width: 100%;
+                            justify-content: flex-start;
+
+                            p {
+                                font-size: 18px;
+                            }
+
+                            .textContainer {
+                                width: 100%;
+
+                                p {
+                                    max-width: 100%;
+                                }
+
+                                &:nth-of-type(2) {
+
+                                    p {
+                                        text-align: start;
+                                    }
+                                }
+                            }
+                        }
+
+                        .contactLinks {
+                            width: 100%;
+                            flex-direction: column;
+                            align-items: center;
+
+                            a {
+
+                                p {
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

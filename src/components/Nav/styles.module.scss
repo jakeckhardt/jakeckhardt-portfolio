@@ -1,0 +1,146 @@
+@use "../../app/_colors" as colors;
+
+.navContainer {
+
+    .nav {
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        a {
+            color: colors.$black;
+            text-decoration: none;
+            font-size: 50px;
+            padding-right: 0;
+            transition: all 0.2s;
+
+            &:hover {
+                padding-right: 30px;
+            }
+        }
+    }
+
+    .mobileNav {
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 99999;
+        display: none;
+
+        .burger {
+            width: 25px;
+            height: 25px;
+            background: colors.$green;
+            border-radius: 50%;
+            border: 2px solid colors.$green;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            z-index: 99999;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+            svg {
+
+                path {
+                    fill: white;
+                }
+            }
+        }
+
+        .navContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            width: 200px;
+            padding: 40px 20px;
+            background: white;
+            position: absolute;
+            top: 25px;
+            right: -245px;
+            border: 2px solid colors.$green;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+
+            .mobileHeader {
+
+                h3 {
+                    color: colors.$green;
+                    font-size: 32px;
+                    margin: 0;
+                }
+
+                p {
+                    font-size: 20px;
+                    margin: 0;
+                    line-height: 20px;
+                    color: colors.$black;
+                }
+            }
+
+            .links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+
+                a {
+                    text-decoration: none;
+                    color: colors.$black;
+                    font-size: 30px;
+                }
+            }
+
+            &.open {
+                right: 25px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .navContainer {
+
+        .nav {
+            display: none;
+        }
+    
+        .mobileNav {
+            display: flex;
+        }           
+    }
+}
+
+@media (max-width: 768px) {
+
+    .navContainer {
+
+        .mobileNav {
+    
+            .burger {
+                right: 5px;
+                top: 5px;
+            }
+            
+            .navContainer {
+                top: 15px;
+    
+                &.open {
+                    right: 15px;
+                }
+            }
+        }
+    }
+}

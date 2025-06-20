@@ -1,0 +1,260 @@
+@use '../../app/_colors' as colors;
+
+.projectsContainer {
+    display: flex;
+    gap: 10px;
+
+    .projectModalContainer {
+        position: fixed;
+        z-index: 99999;
+        height:100vh;
+        width: 100%;
+        background: rgba(0,0,0,0.25);
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+
+        .projectModal {
+            max-width: 1200px;
+            width: 100%;
+            background: colors.$white;
+            border: 2px solid colors.$green;
+            border-radius: 10px;
+            padding: 40px;
+            display: flex;
+            gap: 40px;
+            overflow: hidden;
+            box-sizing: border-box;
+
+            .mobileTitleContainer {
+                display: none;
+                justify-content: space-between;
+                gap: 40px;
+                width: 100%;
+
+                a {
+                    text-decoration: none;
+                    transition: all 0.2s;
+
+                    h3 {
+                        color: colors.$green;
+                        font-size: 45px;
+                        margin: 0;
+                    }
+
+                    &:hover {
+                        transform: translateX(20px);
+                    }
+                }
+
+                .closeModal {
+                    
+                    svg {
+                        width: 25px;
+                        cursor: pointer;
+
+                        path {
+                            fill: colors.$green;
+                        }
+                    }
+                }
+            }
+
+            .imageLink {
+                max-width: 400px;
+                width: 40%;
+                height: fit-content;
+                border-radius: 10px;
+                border: 2px solid colors.$green;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: colors.$green;
+                text-decoration: none;
+                position: relative;
+
+                h3 {
+                    position: absolute;
+                    font-size: 60px;
+                    color: colors.$white;
+                    margin: 0;
+                    opacity: 0;
+                    z-index: 999;
+                    transition: all 0.2s;
+                }
+
+                img {
+                    width: 100%;
+                    transition: all 0.2s;
+                }
+
+                &:hover {
+
+                    h3 {
+                        opacity: 1;
+                    }
+
+                    img {
+                        opacity: 0.25;
+                    }
+                }
+            }
+
+            .modalInformation {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                position: relative;
+                width: 60%;
+
+                .titleContainer {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 40px;
+
+                    a {
+                        text-decoration: none;
+                        transition: all 0.2s;
+
+                        h3 {
+                            color: colors.$green;
+                            font-size: 45px;
+                            margin: 0;
+                        }
+
+                        &:hover {
+                            transform: translateX(20px);
+                        }
+                    }
+
+                    .closeModal {
+
+                        svg {
+                            width: 25px;
+                            cursor: pointer;
+
+                            path {
+                                fill: colors.$green;
+                            }
+                        }
+                    }
+                }
+
+                .descriptionText {
+                    text-indent: 20px;
+                }
+
+                .skillsContainer {
+                    display: flex;
+                    position: relative;
+                    width: calc(100% + 84px);
+                    left: -40px;
+                    height: 60px;
+                    background: colors.$green;
+                    overflow: hidden;
+                    
+                    .skills {
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        animation: 20s slide infinite linear;
+                        
+                        h3 {
+                            text-align: center;
+                            color: white;
+                            cursor: default;
+                        }
+                    }
+
+                    &:hover {
+
+                        .skills {
+                            animation-play-state: paused;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .projectsContainer {
+        flex-direction: column;
+        align-items: center;
+
+        .project {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .projectModalContainer {
+            align-items: flex-start;
+            overflow: scroll;
+
+            .projectModal {
+                padding: 20px;
+                flex-direction: column;
+                align-items: center;
+
+                .mobileTitleContainer {
+                    display: flex;
+                    gap: 20px;
+
+                    a {
+                        width: calc(100% - 25px);
+
+                        h3 {
+                            font-size: 30px;
+                        }
+                    }
+                }
+
+                .imageLink {
+                    width: 100%;
+
+                    h3 {
+                        position: absolute;
+                        font-size: 48px;
+                        color: colors.$white;
+                        margin: 0;
+                        opacity: 0;
+                        z-index: 999;
+                        transition: all 0.2s;
+                    }
+
+                    img {
+                        width: 100%;
+                        transition: all 0.2s;
+                    }
+
+                    &:hover {
+
+                        h3 {
+                            opacity: 0;
+                        }
+
+                        img {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .modalInformation {
+                    width: 100%;
+
+                    .titleContainer {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

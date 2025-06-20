@@ -1,12 +1,52 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import Project from "@/components/Project";
-import SkillsCarousel from "./SkillsCarousel";
+import Project from "@/components/Project/Project";
+import SkillsCarousel from "../SkillsCarousel/SkillsCarousel";
+import styles from "./styles.module.scss";
 
-export default function Projects({}) {
+interface ProjectProps {
+    image: string;
+    title: string;
+    link: string;
+    description: string[];
+    skillTags: string[];
+}
+
+export default function Projects() {
 
     const projects = [
+        {
+            image: "/betterlogs.png",
+            title: "BetterLogs",
+            link: "https://betterlogs.vercel.app/",
+            description: [
+                `This project was purely a response to my own frustrations with certain 
+                ticketing platforms. Everything seemed overly complex or unintuitive. This 
+                was a "Fine. I'll do it myself." vibe of a project. It's a simple, easily 
+                digestible ticketing platorm that allows users to create different boards, 
+                columns, and tickets.`,
+                `I wanted this to be a good feeling project. Tickets are draggable between
+                columns, tickets can hold data like links and a description, and you can 
+                add new and edit existing columns to drag your information-filled tickets.
+                I also wanted to include a demo mode, so anyone could test this out. However,
+                I didn't want to have all that demo data clogging up the database, so I 
+                created a purely frontend experience using cookies and local storage.`,
+                `This organizational tool was built with React, Next.js, PostgreSQL, and 
+                hosted on Vercel.`
+            ],
+            skillTags: [
+                "CSS3",
+                "RESTful API",
+                "Vercel",
+                "React.js",
+                "Next.js",
+                "SASS",
+                "NPM",
+                "Github",
+                "PostgreSQL"
+            ]
+        },
         {
             image: "/dungeoneerDesigner.png",
             title: "Dungeoneer Designer",
@@ -61,23 +101,19 @@ export default function Projects({}) {
         }
     ];
 
-    const [selectedWork, setSelectedWork] = useState();
+    const [selectedWork, setSelectedWork] = useState<ProjectProps | null>(null);
 
-    function select(num) {
+    function selectProject (projectNum: number | null) {
 
-        if (num === selectedWork) {
-            setSelectedWork();
+        if (projectNum === null) {
+            setSelectedWork(null);
         } else {
-            setSelectedWork(num);
+            setSelectedWork(projects[projectNum]);
         }
     };
 
-    function selectProject (projectNum) {
-        setSelectedWork(projects[projectNum]);
-    };
-
     return (
-        <div className="projectsContainer">
+        <div className={styles.projectsContainer}>
             {projects.map((p, i) => (
                 <Project 
                     project={p}
@@ -85,37 +121,37 @@ export default function Projects({}) {
                     click={selectProject}
                 />
             ))}
-            {selectedWork ? (
-                <div className="projectModalContainer">
-                    <div className="projectModal">
-                        <div className="mobileTitleContainer">
+            {selectedWork && (
+                <div className={styles.projectModalContainer}>
+                    <div className={styles.projectModal}>
+                        <div className={styles.mobileTitleContainer}>
                             <a href={selectedWork.link} target="_blank">
                                 <h3>{selectedWork.title}</h3>
                             </a>
-                            <div className="closeModal">
+                            <div className={styles.closeModal}>
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
                                     viewBox="0 0 384 512"
-                                    onClick={(e) => setSelectedWork()}
+                                    onClick={(e) => setSelectedWork(null)}
                                 >
                                     <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                                 </svg>
                             </div>
                         </div>
-                        <a className="imageLink" href={selectedWork.link} target="_blank">
+                        <a className={styles.imageLink} href={selectedWork.link} target="_blank">
                             <h3>View</h3>
                             <img src={selectedWork.image} />
                         </a>
-                        <div className="modalInformation">
-                            <div className="titleContainer">
+                        <div className={styles.modalInformation}>
+                            <div className={styles.titleContainer}>
                                 <a href={selectedWork.link} target="_blank">
                                     <h3>{selectedWork.title}</h3>
                                 </a>
-                                <div className="closeModal">
+                                <div className={styles.closeModal}>
                                     <svg 
                                         xmlns="http://www.w3.org/2000/svg" 
                                         viewBox="0 0 384 512"
-                                        onClick={(e) => setSelectedWork()}
+                                        onClick={(e) => setSelectedWork(null)}
                                     >
                                         <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                                     </svg>
@@ -123,17 +159,16 @@ export default function Projects({}) {
                             </div>
                             <SkillsCarousel 
                                 skills={selectedWork.skillTags}
+                                modal={true}
                             />
                             {selectedWork.description.map((d) => (
-                                <p className="descriptionText">
+                                <p className={styles.descriptionText}>
                                     {d}
                                 </p>
                             ))}
                         </div>
                     </div>
                 </div>
-            ) : (
-                ""
             )}
         </div>
     );

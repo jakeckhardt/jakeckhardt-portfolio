@@ -1,0 +1,59 @@
+@use '../../app/_colors' as colors;
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.skillsContainer {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 60px;
+
+    &.modalSkillsContainer {
+        width: calc(100% + 84px);
+        left: -40px;
+        background: colors.$green;
+        overflow: hidden;
+    }
+    
+    .skills {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: 20s slide infinite linear;
+        height: 100%;
+        
+        h3 {
+            text-align: center;
+            color: white;
+            cursor: default;
+        }
+
+    }
+
+    &:hover {
+
+        .skills {
+            animation-play-state: paused;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .skillsContainer {
+
+        .skills {
+
+            h3 {
+                font-size: 16px;
+            }
+        }
+    }
+}

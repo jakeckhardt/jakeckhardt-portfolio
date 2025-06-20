@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import SkillsCarousel from "@/components/SkillsCarousel";
+import SkillsCarousel from "@/components/SkillsCarousel/SkillsCarousel";
+import styles from "./styles.module.scss";
 
 export default function Work({}) {
 
@@ -10,7 +11,7 @@ export default function Work({}) {
             company: "Anheuser-Busch",
             title: "Front-End Developer",
             location: "St. Louis, MO.",
-            time: "Jan. 2021 - present",
+            time: "Jan. 2021 - April 2025",
             description: [
                 `Ah, yes, Anheuser-Busch, the biggest beer company in the world - owning more than 500 brands. 
                 With a net that wide, they must have a lot of tech work, right? ...Yeah, you're absolutely 
@@ -18,7 +19,7 @@ export default function Work({}) {
                 `I was hired on as a contractor in 2021 and eventually hired on full-time in 2022. I was 
                 part of a small team expanding their web presence. We transitioned all of their top brand sites 
                 - like Budweiser, Michelob Ultra, and Busch - over from Adobe Experience Manager or Drupal to a 
-                Svelte/Builder.io environment.`,
+                Svelte/Builder.io environment then into React.`,
                 `During my time at the company, I've gotten the opportunity to take part in some pretty neat 
                 projects and campaigns. I've set up merch stores on the brand sites using Shopify's API; 
                 developed apps in collaboration with NFL, NHL, UFC, and other acronyms; and created brand 
@@ -89,35 +90,35 @@ export default function Work({}) {
         },
     ];
 
-    const [selectedWork, setSelectedWork] = useState();
+    const [selectedWork, setSelectedWork] = useState(-1);
 
-    function select(num) {
+    function select(num: number) {
 
         if (num === selectedWork) {
-            setSelectedWork();
+            setSelectedWork(-1);
         } else {
             setSelectedWork(num);
         }
     };
 
     return (
-        <div className="workContainer">
+        <div className={styles.workContainer}>
             {work.map((w, i) => (
                 <div 
-                    className={selectedWork === i ? "work selected" : "work"}
+                    className={selectedWork === i ? [styles.work, styles.selected].join(" ") : styles.work}
                     onClick={(e) => select(i)}
                 >
-                    <div className="header">
+                    <div className={styles.header}>
                         <h3>{w.company}</h3>
                         <p>{w.title}</p>
                     </div>
-                    <div className="workInfoContainer">
-                        <div className="workTextContainer">
-                            <div className="timeAndLocation">
+                    <div className={styles.workInfoContainer}>
+                        <div className={styles.workTextContainer}>
+                            <div className={styles.timeAndLocation}>
                                 <h3>{w.time}</h3>
                                 <h3>{w.location}</h3>
                             </div>
-                            <div className="jobDescription">
+                            <div className={styles.jobDescription}>
                                 {w.description.map((d) => (
                                     <p>{d}</p>
                                 ))}

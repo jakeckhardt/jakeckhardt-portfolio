@@ -1,0 +1,179 @@
+@use '../../app/_colors' as colors;
+
+.workContainer {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .work {
+        border-bottom: 2px solid colors.$green;
+        transition: all 0.2s;
+
+        .header {
+            padding: 35px 30px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            h3 {
+                font-size: 35px;
+                color: colors.$green;
+                margin: 0;
+                transition: all 0.2s;
+            }
+
+            p {
+                color: colors.$green;
+                transition: all 0.2s;
+            }
+
+        }
+
+        .workInfoContainer {
+            max-height: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s;
+            
+            .workTextContainer {
+                display: flex;
+                gap: 20px;
+                padding: 0 30px;
+                margin-bottom: 30px;
+
+                .timeAndLocation {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: flex-end;
+                    width: 30%;
+
+                    h3 {
+                        margin: 0;
+                        font-size: 22px;
+                        color: white;
+                    }
+
+                    p {
+                        color: white;
+                    }
+                }
+
+                .jobDescription {
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    p {
+                        text-indent: 20px;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            background: colors.$green;
+            
+            .header {
+                padding-left: 60px;
+            }
+
+            h3,
+            p {
+                color: colors.$white;
+            }
+        }
+
+        &.selected {
+            transition: all 0.2s;
+            background: colors.$green;
+
+            h3,
+            p {
+                color: colors.$white;
+            }
+
+            .workInfoContainer {
+                max-height: 500px;
+            }
+        }
+    }
+
+    &> div:last-of-type {
+        border: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .workContainer {
+
+        .work {
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 35px 15px 30px;
+
+                h3 {
+                    font-size: 25px;
+                }
+            }
+
+            .workInfoContainer {
+                padding: 0 15px;
+
+                .workTextContainer {
+                    flex-direction: column;
+                    padding: 0;
+
+                    .timeAndLocation {
+                        width: 100%;
+                        align-items: flex-start;
+
+                        h3 {
+                            font-size: 18px;
+                        }
+                    }
+
+                    .jobDescription {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &:hover {
+                background: none;
+                
+                .header {
+                    padding-left: 15px;
+                }
+
+                h3,
+                p {
+                    color: colors.$green;
+                }
+            }
+
+            &.selected {
+                background: colors.$green;
+
+                h3,
+                p {
+                    color: colors.$white;
+                }
+
+                .workInfoContainer {
+                    max-height: 945px;
+                }
+            }
+        }
+    }
+}
