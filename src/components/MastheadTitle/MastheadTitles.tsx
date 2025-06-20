@@ -11,7 +11,8 @@ export default function MastheadTitles() {
         "d&d enthusiast",
         "coffee drinker",
         "nerd",
-        "fun guy"
+        "fun guy",
+        "Dungeon Master",
     ];
 
     const [moveup, setMoveup] = useState(false);
